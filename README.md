@@ -62,11 +62,22 @@ En el bloque `profesional` de `config.js`:
 ```js
 disponible: true,                 // false = oculta el distintivo de la portada
 textoDisponible: "Disponible para colaboraciones",
-plazoRespuesta: "Respuesta en 48 horas laborables"   // "" = no se anuncia plazo
+plazoRespuesta: "Respuesta en 48 horas laborables",  // "" = no se anuncia plazo
+ubicacion: "Tel Aviv, Israel",
+husoHorario: "Una hora por delante de la España peninsular",
+modalidad: "Colaboraciones en remoto para toda España"
 ```
 
-Pon `disponible: false` cuando no estés aceptando proyectos, y vacía
-`plazoRespuesta` si prefieres no comprometerte a un plazo concreto.
+Pon `disponible: false` cuando no estés aceptando proyectos, y vacía cualquier
+otro campo (`""`) para que ese dato no aparezca.
+
+`ubicacion` se muestra en tres sitios (portada, contacto y pie) y además
+alimenta los **datos estructurados de schema.org** que se generan solos: se
+parte por la coma, así que mantén el formato `Ciudad, País`.
+
+Esos datos estructurados (tipo `Person`) se construyen en `main.js` a partir
+de este archivo —perfiles, email y ubicación— para que no haya dos sitios que
+mantener. Ayudan a que Google entienda de quién es la web.
 
 ### 5. Páginas legales (importante si facturas)
 

@@ -106,6 +106,38 @@
     }
   }
 
+  /* Ubicación: portada, contacto y pie */
+  var ubicacion = (pro.ubicacion || '').trim();
+  var huso = (pro.husoHorario || '').trim();
+  var modalidad = (pro.modalidad || '').trim();
+
+  function fillOrRemove(sel, textSel, value) {
+    var el = document.querySelector(sel);
+    if (!el) return;
+    if (value) {
+      el.querySelector(textSel).textContent = value;
+      el.hidden = false;
+    } else {
+      el.remove();
+    }
+  }
+
+  fillOrRemove('[data-location]', '[data-location-text]', ubicacion);
+  fillOrRemove('[data-footer-location]', '[data-footer-location-text]', ubicacion);
+  fillOrRemove('[data-contact-mode]', '[data-contact-mode-text]', modalidad);
+
+  var contactLoc = document.querySelector('[data-contact-location]');
+  if (contactLoc) {
+    if (ubicacion) {
+      contactLoc.querySelector('[data-contact-location-text]').textContent = ubicacion;
+      var tz = contactLoc.querySelector('[data-contact-timezone]');
+      if (huso) { tz.textContent = huso; } else { tz.remove(); }
+      contactLoc.hidden = false;
+    } else {
+      contactLoc.remove();
+    }
+  }
+
   var respEl = document.querySelector('[data-response]');
   if (respEl) {
     var respText = (pro.plazoRespuesta || '').trim();
@@ -272,6 +304,37 @@
       if (e.target.classList) e.target.classList.remove('is-invalid');
     });
   }
+
+  /* ── Datos estructurados (schema.org) ──────────────────────────────────────
+     Se generan desde el config para que no haya dos sitios que mantener:
+     los perfiles y la ubicación viven solo en config.js.                     */
+  try {
+    var persona = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Raúl',
+      alternateName: 'Raúl Becas y Ayudas',
+      jobTitle: 'Divulgador especializado en becas y ayudas al estudio',
+      description: 'Divulgación sobre becas, ayudas y oportunidades educativas para estudiantes y familias.',
+      knowsLanguage: 'es'
+    };
+    if (redes.length) {
+      persona.sameAs = redes.map(function (r) { return r.url; });
+    }
+    if (email) { persona.email = 'mailto:' + email; }
+    if (ubicacion) {
+      var partes = ubicacion.split(',');
+      persona.address = {
+        '@type': 'PostalAddress',
+        addressLocality: partes[0].trim(),
+        addressCountry: (partes[1] || '').trim() || undefined
+      };
+    }
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify(persona);
+    document.head.appendChild(ld);
+  } catch (e) { /* los datos estructurados nunca deben romper la página */ }
 
   /* ── Año actual en el pie ──────────────────────────────────────────────── */
   document.querySelectorAll('[data-year]').forEach(function (el) {

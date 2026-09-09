@@ -100,7 +100,18 @@ window.SITE_CONFIG = {
 
     // Plazo de respuesta que se anuncia en la sección de contacto.
     // Déjalo vacío ("") si prefieres no comprometerte a un plazo.
-    plazoRespuesta: "Respuesta en 48 horas laborables"
+    plazoRespuesta: "Respuesta en 48 horas laborables",
+
+    // Ubicación. Aparece en portada, contacto y pie.
+    ubicacion: "Tel Aviv, Israel",
+
+    // Aclaración horaria para quien vaya a proponer una reunión.
+    // Israel va una hora por delante de la España peninsular casi todo el
+    // año (los cambios de hora no coinciden exactamente). Vacío = no se muestra.
+    husoHorario: "Una hora por delante de la España peninsular",
+
+    // Aclaración sobre cómo se trabaja desde la distancia. Vacío = no se muestra.
+    modalidad: "Colaboraciones en remoto para toda España"
   },
 
 
