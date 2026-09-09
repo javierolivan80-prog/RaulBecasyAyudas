@@ -26,31 +26,31 @@ window.SITE_CONFIG = {
     {
       id: "instagram",
       nombre: "Instagram",
-      handle: "@raulbecasyayudas",             // ← CAMBIAR
-      url: "https://www.instagram.com/",       // ← CAMBIAR por el perfil real
+      handle: "@raulgb_01",
+      url: "https://www.instagram.com/raulgb_01/",
       descripcion: "Convocatorias del día, resúmenes visuales y respuestas en historias.",
       cta: "Seguir en Instagram"
     },
     {
       id: "tiktok",
       nombre: "TikTok",
-      handle: "@raulbecasyayudas",             // ← CAMBIAR
-      url: "https://www.tiktok.com/",          // ← CAMBIAR por el perfil real
+      handle: "@raulgb_02",
+      url: "https://www.tiktok.com/@raulgb_02",
       descripcion: "Explicaciones rápidas de becas y ayudas en formato vertical.",
       cta: "Seguir en TikTok"
     },
     {
       id: "youtube",
       nombre: "YouTube",
-      handle: "@raulbecasyayudas",             // ← CAMBIAR
-      url: "https://www.youtube.com/",         // ← CAMBIAR por el canal real
+      handle: "@raulgb_02",
+      url: "https://www.youtube.com/@raulgb_02",
       descripcion: "Vídeos largos: convocatorias paso a paso y cómo rellenar la solicitud.",
       cta: "Ver el canal"
     },
     {
       id: "x",
       nombre: "X",
-      handle: "@raulbecasyayudas",             // ← CAMBIAR
+      handle: "@raulgb_02",                    // ← ajustar si el usuario difiere
       url: "",                                  // vacío = no se muestra
       descripcion: "Avisos cortos de plazos y actualidad educativa.",
       cta: "Seguir en X"
@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
     {
       id: "telegram",
       nombre: "Telegram",
-      handle: "@raulbecasyayudas",             // ← CAMBIAR
+      handle: "@raulgb_02",                    // ← ajustar si el usuario difiere
       url: "",                                  // vacío = no se muestra
       descripcion: "Canal de avisos para no perderte ninguna fecha límite.",
       cta: "Unirse al canal"
