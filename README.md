@@ -55,7 +55,32 @@ cifras: [
 ]
 ```
 
-### 4. Fotografías
+### 4. Perfil profesional
+
+En el bloque `profesional` de `config.js`:
+
+```js
+disponible: true,                 // false = oculta el distintivo de la portada
+textoDisponible: "Disponible para colaboraciones",
+plazoRespuesta: "Respuesta en 48 horas laborables"   // "" = no se anuncia plazo
+```
+
+Pon `disponible: false` cuando no estés aceptando proyectos, y vacía
+`plazoRespuesta` si prefieres no comprometerte a un plazo concreto.
+
+### 5. Páginas legales (importante si facturas)
+
+> ⚠️ Si Raúl ejerce como autónomo, la **LSSI-CE** obliga a identificar al
+> titular de la web (nombre o razón social, NIF y datos de contacto). Y como
+> el formulario recoge datos personales, el **RGPD** exige una política de
+> privacidad.
+>
+> Esas dos páginas **no están incluidas**: requieren datos reales que no se
+> pueden inventar. Cuando las tengas, pon sus URLs en el bloque `legal` de
+> `config.js` y aparecerán automáticamente en el pie. Con las URLs vacías no
+> se muestra ningún enlace.
+
+### 6. Fotografías
 
 Hay dos, y se cambian sustituyendo el archivo con el mismo nombre:
 
@@ -100,9 +125,11 @@ en su etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
 2. **Quién es Raúl** — historia, misión y forma de trabajar.
 3. **Qué hace** — sus seis áreas de contenido.
 4. **Su comunidad** — impacto cualitativo (+ cifras reales si se configuran).
-5. **Redes sociales** — tarjetas con enlace directo a cada perfil.
-6. **Preguntas frecuentes** — acordeón accesible.
-7. **Contacto** — formulario para colaboraciones, medios y centros educativos.
+5. **Colaboraciones** — modalidades de trabajo profesional, proceso en 3 pasos
+   y compromiso editorial. Es la sección comercial de la web.
+6. **Redes sociales** — tarjetas con enlace directo a cada perfil.
+7. **Preguntas frecuentes** — acordeón accesible.
+8. **Contacto** — formulario para colaboraciones, medios y centros educativos.
 
 ## ✉️ Cómo funciona el formulario
 

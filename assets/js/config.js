@@ -85,6 +85,36 @@ window.SITE_CONFIG = {
          { valor: "85K",  etiqueta: "Seguidores en TikTok" },
          { valor: "3,4M", etiqueta: "Reproducciones en el último año" }
        ]                                                                      */
-  cifras: []
+  cifras: [],
+
+
+  /* ── PERFIL PROFESIONAL ──────────────────────────────────────────────────
+     Elementos que transmiten que detrás hay un profesional en activo.
+     Cualquiera de ellos vacío o en false simplemente no se muestra.        */
+  profesional: {
+
+    // Distintivo "Disponible para colaboraciones" en la portada.
+    // Ponlo en false cuando no estés aceptando proyectos.
+    disponible: true,
+    textoDisponible: "Disponible para colaboraciones",
+
+    // Plazo de respuesta que se anuncia en la sección de contacto.
+    // Déjalo vacío ("") si prefieres no comprometerte a un plazo.
+    plazoRespuesta: "Respuesta en 48 horas laborables"
+  },
+
+
+  /* ── PÁGINAS LEGALES ─────────────────────────────────────────────────────
+     ⚠️  IMPORTANTE si Raúl factura como autónomo:
+     la LSSI-CE obliga a identificar al titular de la web (nombre, NIF y
+     datos de contacto) y, si el formulario recoge datos personales, a
+     publicar una política de privacidad.
+
+     Cuando tengas esas páginas, pon aquí sus URLs y aparecerán en el pie.
+     Con las URLs vacías no se muestra ningún enlace.                       */
+  legal: [
+    { texto: "Aviso legal",            url: "" },
+    { texto: "Política de privacidad", url: "" }
+  ]
 
 };

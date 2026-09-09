@@ -92,6 +92,47 @@
     }
   });
 
+  /* ── Perfil profesional: disponibilidad y plazo de respuesta ───────────── */
+  var pro = cfg.profesional || {};
+
+  var availEl = document.querySelector('[data-availability]');
+  if (availEl) {
+    var availText = (pro.textoDisponible || '').trim();
+    if (pro.disponible && availText) {
+      availEl.querySelector('[data-availability-text]').textContent = availText;
+      availEl.hidden = false;
+    } else {
+      availEl.remove();
+    }
+  }
+
+  var respEl = document.querySelector('[data-response]');
+  if (respEl) {
+    var respText = (pro.plazoRespuesta || '').trim();
+    if (respText) {
+      respEl.querySelector('[data-response-text]').textContent = respText;
+      respEl.hidden = false;
+    } else {
+      respEl.remove();
+    }
+  }
+
+  /* ── Enlaces legales del pie (solo los que tengan URL) ─────────────────── */
+  var legalEl = document.querySelector('[data-legal-links]');
+  if (legalEl) {
+    var legales = (cfg.legal || []).filter(function (l) {
+      return l && l.texto && typeof l.url === 'string' && l.url.trim() !== '';
+    });
+    if (legales.length) {
+      legalEl.innerHTML = legales.map(function (l) {
+        return '<li><a href="' + l.url + '">' + l.texto + '</a></li>';
+      }).join('');
+      legalEl.hidden = false;
+    } else {
+      legalEl.remove();
+    }
+  }
+
   /* ── Menú móvil ────────────────────────────────────────────────────────── */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('nav-principal');
