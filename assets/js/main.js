@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   RAÚL BECAS Y LEFILLAS — COMPORTAMIENTO
+   RAÚL — ABOGADO · COMPORTAMIENTO
    Vanilla JS, sin dependencias. No hace falta editar este archivo:
    toda la configuración vive en assets/js/config.js
    ════════════════════════════════════════════════════════════════════════════ */
@@ -42,42 +42,52 @@
     }).join('');
   });
 
-  /* Tarjetas grandes de la sección Redes */
-  var grid = document.querySelector('[data-social-grid]');
-  if (grid) {
-    if (!redes.length) {
-      grid.innerHTML = '<li class="social-empty">Los perfiles se anunciarán muy pronto.</li>';
-    } else {
-      grid.innerHTML = redes.map(function (r) {
-        return '' +
-          '<li class="social-card" data-net="' + r.id + '" data-reveal>' +
-            '<a href="' + r.url + '" target="_blank" rel="noopener noreferrer">' +
-              '<span class="social-card-glow" aria-hidden="true"></span>' +
-              '<span class="social-card-icon">' + svgWrap(r.id) + '</span>' +
-              '<span class="social-card-body">' +
-                '<span class="social-card-name">' + r.nombre + '</span>' +
-                (r.handle ? '<span class="social-card-handle">' + r.handle + '</span>' : '') +
-                (r.descripcion ? '<span class="social-card-desc">' + r.descripcion + '</span>' : '') +
-              '</span>' +
-              '<span class="social-card-cta">' + (r.cta || ('Ver ' + r.nombre)) +
-                '<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6.5 13.5 13.5 6.5m0 0H8m5.5 0V12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-              '</span>' +
-            '</a>' +
-          '</li>';
+  /* ── Escapado: todo lo que viene del config se inserta como texto ──────── */
+  function esc(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* ── Credenciales profesionales (solo si están configuradas) ───────────── */
+  var credEl = document.querySelector('[data-credentials]');
+  if (credEl) {
+    var creds = (cfg.credenciales || []).filter(function (c) { return c && c.etiqueta && c.valor; });
+    if (creds.length) {
+      credEl.innerHTML = creds.map(function (c) {
+        return '<li><span class="cred-label">' + esc(c.etiqueta) + '</span>' +
+               '<span class="cred-value">' + esc(c.valor) + '</span></li>';
       }).join('');
+      credEl.hidden = false;
+    } else {
+      credEl.remove();
     }
   }
 
-  /* ── Cifras de comunidad (solo si están configuradas) ───────────────────── */
-  var statsEl = document.querySelector('[data-stats]');
-  if (statsEl) {
-    var cifras = (cfg.cifras || []).filter(function (c) { return c && c.valor && c.etiqueta; });
-    if (cifras.length) {
-      statsEl.hidden = false;
-      statsEl.innerHTML = cifras.map(function (c) {
-        return '<li class="stat" data-reveal><span class="stat-value">' + c.valor +
-               '</span><span class="stat-label">' + c.etiqueta + '</span></li>';
+  /* ── Reseñas de clientes ────────────────────────────────────────────────
+     Sin reseñas reales configuradas, la sección y su enlace del menú
+     desaparecen: una sección de testimonios vacía resta más que suma.      */
+  var reviewsSection = document.querySelector('[data-reviews-section]');
+  var reviewsGrid = document.querySelector('[data-reviews-grid]');
+  var navResenas = document.querySelector('[data-nav-resenas]');
+  if (reviewsSection && reviewsGrid) {
+    var resenas = (cfg.resenas || []).filter(function (r) { return r && r.texto && r.autor; });
+    if (resenas.length) {
+      reviewsGrid.innerHTML = resenas.map(function (r) {
+        return '' +
+          '<li class="review-card" data-reveal>' +
+            '<blockquote>' + esc(r.texto) + '</blockquote>' +
+            '<figcaption class="review-author">' +
+              '<span class="review-name">' + esc(r.autor) + '</span>' +
+              (r.detalle ? '<span class="review-detail">' + esc(r.detalle) + '</span>' : '') +
+            '</figcaption>' +
+          '</li>';
       }).join('');
+      reviewsSection.hidden = false;
+      if (navResenas) navResenas.hidden = false;
+    } else {
+      reviewsSection.remove();
+      if (navResenas) navResenas.remove();
     }
   }
 
@@ -313,9 +323,9 @@
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Raúl',
-      alternateName: 'Raúl Becas y Lefillas',
-      jobTitle: 'Divulgador especializado en becas y ayudas al estudio',
-      description: 'Divulgación sobre becas, ayudas y oportunidades educativas para estudiantes y familias.',
+      alternateName: 'Raúl — Abogado',
+      jobTitle: 'Abogado',
+      description: 'Abogado especializado en nacionalidad española, extranjería y derecho internacional.',
       knowsLanguage: 'es'
     };
     if (redes.length) {

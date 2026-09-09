@@ -1181,7 +1181,114 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .collab-commit .btn { margin-top: auto; }
 
-/* ── 10. Redes sociales ───────────────────────────────────────────────────── */
+/* ── 9d. Credenciales profesionales ───────────────────────────────────────── */
+.credentials[hidden] { display: none; }
+
+.credentials {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.credentials li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .9rem 1.25rem;
+  background: var(--paper);
+}
+.cred-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.cred-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ── 9e. Pasos del proceso ────────────────────────────────────────────────── */
+.steps-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.steps-grid .community-card h3 { padding-top: 0; }
+.steps-grid .community-card h3::before { content: none; }
+
+.step-num {
+  display: block;
+  margin-bottom: .9rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: transparent;
+  background: linear-gradient(150deg, var(--blue-bright), rgba(91, 155, 255, .45));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ── 10. Reseñas ──────────────────────────────────────────────────────────── */
+.section-reviews[hidden] { display: none; }
+
+.section-reviews { background: var(--paper); }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.review-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.6rem, 3vw, 2.1rem);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: clamp(1.6rem, 3vw, 2.1rem);
+  right: clamp(1.6rem, 3vw, 2.1rem);
+  width: 15px;
+  height: 15px;
+  color: rgba(47, 107, 255, .32);
+  -webkit-mask: var(--star) center / contain no-repeat;
+  mask: var(--star) center / contain no-repeat;
+  background-color: currentColor;
+}
+
+.review-card blockquote {
+  margin: 0;
+  flex: 1;
+  padding-right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.review-name { font-weight: 650; font-size: .95rem; }
+.review-detail { font-size: .85rem; color: var(--text-3); }
+
+/* ── 10b. Redes sociales (estilos conservados para los iconos del pie) ────── */
 .section-social { background: var(--paper); }
 
 .social-grid {
@@ -1664,7 +1771,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 1080px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); }
   .work-grid, .social-grid, .community-grid,
-  .collab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collab-grid, .steps-grid, .reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .collab-panel { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   /* Apiladas: el retrato pasa a acompañar al texto, no a dominarlo */
@@ -1737,7 +1844,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 700px) {
-  .work-grid, .social-grid, .community-grid, .collab-grid { grid-template-columns: 1fr; }
+  .work-grid, .social-grid, .community-grid,
+  .collab-grid, .steps-grid, .reviews-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {

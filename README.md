@@ -1,115 +1,123 @@
-# Raúl Becas y Lefillas — web personal
+# Raúl — Abogado · web del despacho
 
-Sitio web de marca personal de **Raúl**, creador de contenido especializado en
-becas, ayudas y oportunidades educativas para estudiantes y familias.
+Web de marca personal de **Raúl**, abogado especializado en nacionalidad
+española, extranjería y derecho internacional entre España e Israel.
 
 Es una web **estática**: HTML, CSS y JavaScript sin dependencias, sin framework
-y sin proceso de compilación. Se puede publicar tal cual en GitHub Pages,
-Netlify, Vercel o cualquier hosting tradicional.
+y sin proceso de compilación. Se publica tal cual en Vercel, Netlify, GitHub
+Pages o cualquier hosting tradicional.
 
 ---
 
-## 🚀 Puesta en marcha (2 minutos)
+## ⚠️ Léeme antes de publicar
 
-Todo lo que hay que personalizar está en **un único archivo**:
-[`assets/js/config.js`](assets/js/config.js). No hace falta tocar el HTML ni el CSS.
+Los textos de la web —áreas de práctica, proceso de trabajo, preguntas
+frecuentes— están **redactados como plantilla**. Son una base profesional
+coherente, pero describen un despacho genérico, no necesariamente el tuyo.
+
+**Antes de poner la web en producción, revísalos uno por uno y ajústalos a lo
+que realmente ofreces.** Es la web de un profesional colegiado: todo lo que
+afirme tiene que ser cierto.
+
+Hay tres bloques que se han dejado **deliberadamente vacíos** porque solo
+pueden rellenarse con datos reales:
+
+| Bloque | Por qué está vacío |
+| --- | --- |
+| `credenciales` | El nº de colegiado es público y verificable. Inventarlo es una infracción deontológica. |
+| `resenas` | Las reseñas falsas están prohibidas por la Directiva (UE) 2019/2161 y la Ley de Competencia Desleal, con sanciones de hasta el 4 % de la facturación. |
+| `legal` | El aviso legal y la política de privacidad exigen datos identificativos reales. |
+
+Mientras estén vacíos, esas secciones **no aparecen**: la web funciona
+perfectamente sin ellas y no muestra huecos.
+
+---
+
+## 🚀 Puesta en marcha
+
+Todo lo personalizable está en **un único archivo**:
+[`assets/js/config.js`](assets/js/config.js).
 
 ### 1. Email de contacto
 
 ```js
-email: "hola@raulbecasylefillas.com",   // ← pon aquí el email real
+email: "contacto@ejemplo.com",   // ← el email real del despacho
 ```
 
-Lo usan el enlace directo y el formulario de contacto.
+### 2. Perfiles
 
-### 2. Redes sociales
+Sustituye la `url` de cada red por el perfil real. **Las redes con la url
+vacía (`""`) no se muestran**, así que no quedan enlaces rotos.
 
-Sustituye la `url` de cada red por el perfil real:
-
-```js
-{
-  id: "instagram",
-  nombre: "Instagram",
-  handle: "@tu_usuario",
-  url: "https://www.instagram.com/tu_usuario/",
-  descripcion: "Convocatorias del día, resúmenes visuales y respuestas en historias.",
-  cta: "Seguir en Instagram"
-}
-```
-
-* Las redes cuya `url` esté **vacía (`""`) no se muestran** en la web.
-  Así puedes activar solo las que uses, sin dejar enlaces rotos.
-* Redes ya preparadas con su icono: `instagram`, `tiktok`, `youtube`, `x`,
-  `telegram`, `linkedin`. Cualquier otro `id` usará un icono genérico de web.
-
-### 3. Cifras de comunidad (opcional)
-
-> ⚠️ Usa **solo datos reales**. Si la lista está vacía —como viene por defecto—
-> la web no muestra ninguna cifra y la sección "Su comunidad" funciona igual.
+### 3. Credenciales profesionales
 
 ```js
-cifras: [
-  { valor: "120K", etiqueta: "Seguidores en Instagram" },
-  { valor: "85K",  etiqueta: "Seguidores en TikTok" },
-  { valor: "3,4M", etiqueta: "Reproducciones en el último año" }
+credenciales: [
+  { etiqueta: "Colegio",   valor: "ICAM nº 000000" },
+  { etiqueta: "Ejercicio", valor: "Desde 2016" },
+  { etiqueta: "Idiomas",   valor: "Español · Hebreo · Inglés" }
 ]
 ```
 
-### 4. Perfil profesional
+Solo datos comprobables: el censo del Consejo General de la Abogacía es
+público.
 
-En el bloque `profesional` de `config.js`:
+### 4. Reseñas de clientes
 
 ```js
-disponible: true,                 // false = oculta el distintivo de la portada
-textoDisponible: "Disponible para colaboraciones",
-plazoRespuesta: "Respuesta en 48 horas laborables",  // "" = no se anuncia plazo
-ubicacion: "Tel Aviv, Israel",
-husoHorario: "Una hora por delante de la España peninsular",
-modalidad: "Colaboraciones en remoto para toda España"
+resenas: [
+  {
+    texto:   "…",
+    autor:   "María L.",
+    detalle: "Nacionalidad por residencia · 2025"
+  }
+]
 ```
 
-Pon `disponible: false` cuando no estés aceptando proyectos, y vacía cualquier
-otro campo (`""`) para que ese dato no aparezca.
+Tres requisitos para publicar una reseña:
 
-`ubicacion` se muestra en tres sitios (portada, contacto y pie) y además
-alimenta los **datos estructurados de schema.org** que se generan solos: se
-parte por la coma, así que mantén el formato `Ciudad, País`.
+1. Que sea de un **cliente real**.
+2. Que te haya **autorizado por escrito** a publicarla.
+3. Que **no revele datos que identifiquen su asunto** — el secreto profesional
+   sigue vigente. Lo habitual es nombre e inicial del apellido.
 
-Esos datos estructurados (tipo `Person`) se construyen en `main.js` a partir
-de este archivo —perfiles, email y ubicación— para que no haya dos sitios que
-mantener. Ayudan a que Google entienda de quién es la web.
+Si la lista está vacía, la sección y su enlace del menú desaparecen solos.
 
-### 5. Páginas legales (importante si facturas)
+### 5. Perfil profesional
 
-> ⚠️ Si Raúl ejerce como autónomo, la **LSSI-CE** obliga a identificar al
-> titular de la web (nombre o razón social, NIF y datos de contacto). Y como
-> el formulario recoge datos personales, el **RGPD** exige una política de
-> privacidad.
->
-> Esas dos páginas **no están incluidas**: requieren datos reales que no se
-> pueden inventar. Cuando las tengas, pon sus URLs en el bloque `legal` de
-> `config.js` y aparecerán automáticamente en el pie. Con las URLs vacías no
-> se muestra ningún enlace.
+```js
+disponible: true,                 // false = oculta "Acepta nuevos casos"
+textoDisponible: "Acepta nuevos casos",
+plazoRespuesta: "Respuesta a consultas en 48 horas laborables",
+ubicacion: "Tel Aviv, Israel",
+husoHorario: "Una hora por delante de la España peninsular",
+modalidad: "Consultas por videollamada y trámites por vía electrónica"
+```
 
-### 6. Fotografías
+`ubicacion` alimenta además los **datos estructurados de schema.org**, que se
+generan solos desde este archivo. Mantén el formato `Ciudad, País`.
 
-Hay dos, y se cambian sustituyendo el archivo con el mismo nombre:
+### 6. Páginas legales (obligatorias)
 
-| Archivo                  | Dónde sale                | Tamaño en pantalla |
-| ------------------------ | ------------------------- | ------------------ |
-| `assets/img/raul.jpg`    | Hero (portada)            | hasta 440 px       |
-| `assets/img/raul-2.jpg`  | Sección "Quién es Raúl"   | 328 × 410 px       |
+Un abogado en ejercicio necesita publicar:
 
-Recomendado: mínimo 900 px de lado para que se vean nítidas en pantallas de
-alta densidad (móviles y portátiles modernos).
+* **Aviso legal** con titular, NIF, colegio y nº de colegiado (LSSI-CE art. 10
+  y normativa deontológica de publicidad).
+* **Política de privacidad**: el formulario recoge datos personales que, según
+  la materia, pueden ser de categoría especial (RGPD).
 
-> **Nota sobre `raul-2.jpg`:** el original es una captura de vídeo de 516 × 505 px.
-> Por eso se muestra limitada a 328 px de ancho (`max-width` en `.about-photo`):
-> a mayor tamaño se vería blanda. Si consigues esa misma foto en mejor calidad,
-> súbela con el mismo nombre y sube ese `max-width` en `assets/css/styles.css`.
+Cuando las tengas, pon sus URLs en el bloque `legal` y aparecerán en el pie.
 
-Si cambias mucho la proporción de una foto, ajusta también `width` y `height`
-en su etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
+### 7. Fotografías
+
+| Archivo | Dónde sale | Tamaño en pantalla |
+| --- | --- | --- |
+| `assets/img/raul.jpg` | Portada | hasta 440 px |
+| `assets/img/raul-2.jpg` | Sección «Perfil» | 328 × 410 px |
+
+`raul-2.jpg` es una captura de 516 × 505 px, por eso se limita a 328 px de
+ancho. Si consigues el original en mejor calidad, súbelo con el mismo nombre y
+sube el `max-width` de `.about-photo` en el CSS.
 
 ---
 
@@ -117,40 +125,35 @@ en su etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
 
 ```
 .
-├── index.html              Toda la página (una sola vista, 7 secciones)
+├── index.html              Toda la página (7 secciones)
 ├── assets/
-│   ├── css/styles.css      Estilos completos, con tokens de diseño arriba
+│   ├── css/styles.css      Estilos, con los tokens de diseño arriba
+│   ├── css/fonts.css       Fuentes auto-alojadas
 │   ├── js/config.js        ← EL ÚNICO ARCHIVO QUE HAY QUE EDITAR
-│   ├── js/main.js          Comportamiento (menú, animaciones, formulario)
-│   ├── img/
-│   │   ├── raul.jpg        Retrato del hero
-│   │   ├── raul-2.jpg      Retrato de la sección "Quién es Raúl"
-│   │   └── favicon.svg     Icono de pestaña
-│   └── fonts/              Fuentes auto-alojadas (Fraunces e Inter)
+│   ├── js/main.js          Comportamiento (menú, reseñas, formulario)
+│   ├── img/                Retratos y favicon
+│   └── fonts/              Fraunces e Inter (113 KB, sin terceros)
 └── README.md
 ```
 
 ## 🧭 Secciones
 
-1. **Hero** — retrato, nombre, frase de propósito, CTA y redes.
-2. **Quién es Raúl** — historia, misión y forma de trabajar.
-3. **Qué hace** — sus seis áreas de contenido.
-4. **Su comunidad** — impacto cualitativo (+ cifras reales si se configuran).
-5. **Colaboraciones** — modalidades de trabajo profesional, proceso en 3 pasos
-   y compromiso editorial. Es la sección comercial de la web.
-6. **Redes sociales** — tarjetas con enlace directo a cada perfil.
-7. **Preguntas frecuentes** — acordeón accesible.
-8. **Contacto** — formulario para colaboraciones, medios y centros educativos.
+1. **Portada** — nombre, especialidad, ubicación y llamada a consulta.
+2. **Perfil** — trayectoria, forma de trabajar y credenciales.
+3. **Áreas de práctica** — las seis materias del despacho.
+4. **Cómo se trabaja** — el proceso en cuatro pasos.
+5. **Reseñas** — testimonios reales (oculta si no hay).
+6. **Preguntas frecuentes** — acordeón accesible.
+7. **Contacto** — formulario de consulta.
 
 ## ✉️ Cómo funciona el formulario
 
-No hay servidor detrás: al enviar, se valida en el navegador y se abre la
-aplicación de correo del usuario con el mensaje ya redactado (`mailto:`).
-Es la opción más simple y sin mantenimiento.
+No hay servidor: al enviar, se valida en el navegador y se abre la aplicación
+de correo con el mensaje ya redactado (`mailto:`).
 
-Si algún día quieres recibir los mensajes directamente en una bandeja, basta
-con sustituir el manejador `submit` de `assets/js/main.js` por un servicio de
-formularios (Formspree, Basin, Netlify Forms…).
+> Para un despacho conviene valorar un servicio de formularios con cifrado
+> (Formspree, Basin) y enlazar la política de privacidad junto al botón de
+> envío, ya que las consultas pueden contener datos personales sensibles.
 
 ## 🛠️ Ver la web en local
 
@@ -159,21 +162,15 @@ python3 -m http.server 8000
 # abre http://localhost:8000
 ```
 
-## 🌐 Publicar en GitHub Pages
-
-`Settings` → `Pages` → *Source*: `Deploy from a branch` → rama principal,
-carpeta `/ (root)`. Al ser un sitio estático en la raíz, no hace falta nada más.
-
 ## ♿ Accesibilidad y rendimiento
 
 * HTML semántico, `skip link`, foco visible y navegación completa por teclado.
-* Acordeón de FAQ con `<details>` nativo.
-* Respeta `prefers-reduced-motion`: sin animaciones para quien las desactiva.
-* Sin librerías externas: solo se carga una fuente desde Google Fonts.
-* Hoja de estilos y scripts propios, cacheables y ligeros.
+* Acordeón con `<details>` nativo.
+* Respeta `prefers-reduced-motion`.
+* Contraste verificado contra el mínimo AA.
+* Sin librerías ni peticiones a terceros: las fuentes van auto-alojadas.
 
 ## 📄 Aviso
 
-Proyecto de divulgación independiente, no vinculado a ninguna administración
-pública. La información oficial y definitiva sobre cualquier ayuda es siempre
-la de la convocatoria publicada por el organismo correspondiente.
+El contenido de la web es información general y no constituye asesoramiento
+jurídico ni crea relación abogado-cliente.

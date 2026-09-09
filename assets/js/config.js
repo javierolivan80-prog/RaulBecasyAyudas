@@ -1,34 +1,41 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   RAÚL BECAS Y LEFILLAS — CONFIGURACIÓN
+   RAÚL — ABOGADO · CONFIGURACIÓN
    ────────────────────────────────────────────────────────────────────────────
-   Este es el ÚNICO archivo que necesitas editar para poner la web en marcha.
-   No hace falta tocar el HTML ni el CSS.
+   Este es el ÚNICO archivo que necesitas editar. No hace falta tocar el HTML
+   ni el CSS.
 
-   1. Sustituye los enlaces de las redes por los reales.
-   2. Pon el email de contacto.
-   3. (Opcional) Añade cifras REALES de comunidad. Si las dejas vacías,
-      esa parte simplemente no aparece en la web.
+   ⚠️  AVISO IMPORTANTE SOBRE EL CONTENIDO
+   Los textos de la web (áreas de práctica, proceso de trabajo, preguntas
+   frecuentes) son una BASE REDACTADA COMO PLANTILLA. Antes de publicar,
+   revísalos y ajústalos a lo que realmente ofreces: es la web de un
+   profesional colegiado y todo lo que diga debe ser cierto.
    ════════════════════════════════════════════════════════════════════════════ */
 
 window.SITE_CONFIG = {
 
   /* ── EMAIL DE CONTACTO ───────────────────────────────────────────────────
-     El formulario de contacto y el enlace directo usan esta dirección.        */
-  email: "hola@raulbecasylefillas.com",   // ← CAMBIAR por el email real
+     Lo usan el enlace directo y el formulario de consulta.                   */
+  email: "contacto@ejemplo.com",   // ← CAMBIAR por el email real
 
 
-  /* ── REDES SOCIALES ──────────────────────────────────────────────────────
-     Pon la URL completa de cada perfil. Las redes que dejes con la url
-     vacía ("") NO se mostrarán en la web, así que puedes borrar o vaciar
-     las que no uses.
-     `handle` es el nombre de usuario que se ve en la tarjeta (con la @).     */
+  /* ── PERFILES ────────────────────────────────────────────────────────────
+     Las redes con la url vacía ("") NO se muestran, así que no quedan
+     enlaces rotos. Para un despacho, LinkedIn suele ser la más relevante.    */
   redes: [
+    {
+      id: "linkedin",
+      nombre: "LinkedIn",
+      handle: "Raúl — Abogado",
+      url: "",                                  // ← perfil profesional
+      descripcion: "Perfil profesional y publicaciones jurídicas.",
+      cta: "Conectar en LinkedIn"
+    },
     {
       id: "instagram",
       nombre: "Instagram",
       handle: "@raulgb_01",
       url: "https://www.instagram.com/raulgb_01/",
-      descripcion: "Convocatorias del día, resúmenes visuales y respuestas en historias.",
+      descripcion: "Divulgación jurídica en formato breve.",
       cta: "Seguir en Instagram"
     },
     {
@@ -36,7 +43,7 @@ window.SITE_CONFIG = {
       nombre: "TikTok",
       handle: "@raulgb_02",
       url: "https://www.tiktok.com/@raulgb_02",
-      descripcion: "Explicaciones rápidas de becas y ayudas en formato vertical.",
+      descripcion: "Explicaciones rápidas de trámites y plazos.",
       cta: "Seguir en TikTok"
     },
     {
@@ -44,85 +51,89 @@ window.SITE_CONFIG = {
       nombre: "YouTube",
       handle: "@raulgb_02",
       url: "https://www.youtube.com/@raulgb_02",
-      descripcion: "Vídeos largos: convocatorias paso a paso y cómo rellenar la solicitud.",
+      descripcion: "Vídeos largos explicando trámites paso a paso.",
       cta: "Ver el canal"
-    },
-    {
-      id: "x",
-      nombre: "X",
-      handle: "@raulgb_02",                    // ← ajustar si el usuario difiere
-      url: "",                                  // vacío = no se muestra
-      descripcion: "Avisos cortos de plazos y actualidad educativa.",
-      cta: "Seguir en X"
-    },
-    {
-      id: "telegram",
-      nombre: "Telegram",
-      handle: "@raulgb_02",                    // ← ajustar si el usuario difiere
-      url: "",                                  // vacío = no se muestra
-      descripcion: "Canal de avisos para no perderte ninguna fecha límite.",
-      cta: "Unirse al canal"
-    },
-    {
-      id: "linkedin",
-      nombre: "LinkedIn",
-      handle: "Raúl Becas y Lefillas",         // ← CAMBIAR
-      url: "",                                  // vacío = no se muestra
-      descripcion: "Colaboraciones, instituciones y proyectos educativos.",
-      cta: "Conectar en LinkedIn"
     }
   ],
 
 
-  /* ── CIFRAS DE COMUNIDAD (OPCIONAL) ──────────────────────────────────────
-     ⚠️  IMPORTANTE: usa SOLO datos reales y verificables.
-     Si dejas la lista vacía (como está ahora), la web no muestra ninguna
-     cifra y la sección "Su comunidad" sigue funcionando perfectamente.
+  /* ── DATOS PROFESIONALES ─────────────────────────────────────────────────
+     ⚠️  SOLO DATOS REALES Y COMPROBABLES.
+     El número de colegiado es público y verificable en el censo del Consejo
+     General de la Abogacía: un dato inventado aquí se detecta enseguida y
+     además es una infracción deontológica grave.
+
+     Con la lista vacía (como está ahora) este bloque no se muestra y la web
+     funciona igual.
 
      Ejemplo de uso:
-       cifras: [
-         { valor: "120K", etiqueta: "Seguidores en Instagram" },
-         { valor: "85K",  etiqueta: "Seguidores en TikTok" },
-         { valor: "3,4M", etiqueta: "Reproducciones en el último año" }
+       credenciales: [
+         { etiqueta: "Colegio",     valor: "ICAM nº 000000" },
+         { etiqueta: "Ejercicio",   valor: "Desde 2016" },
+         { etiqueta: "Idiomas",     valor: "Español · Hebreo · Inglés" }
        ]                                                                      */
-  cifras: [],
+  credenciales: [],
+
+
+  /* ── RESEÑAS DE CLIENTES ─────────────────────────────────────────────────
+     ⚠️  LEE ESTO ANTES DE RELLENARLO.
+
+     Publicar reseñas inventadas es publicidad engañosa. Está prohibido por
+     la Directiva (UE) 2019/2161 y la Ley de Competencia Desleal, y en la
+     abogacía es además una infracción deontológica. Las sanciones por
+     reseñas falsas llegan al 4 % de la facturación anual.
+
+     Requisitos para publicar una reseña aquí:
+       1. Que sea de un cliente real.
+       2. Que te haya autorizado por escrito a publicarla.
+       3. Que no revele datos que identifiquen su asunto (secreto profesional).
+          Lo habitual es usar el nombre y la inicial del apellido.
+
+     Con la lista vacía, la sección entera y su enlace del menú no aparecen.
+
+     Ejemplo de uso:
+       resenas: [
+         {
+           texto:  "Me explicó el expediente de nacionalidad paso a paso y supe en todo momento en qué punto estaba.",
+           autor:  "María L.",
+           detalle: "Nacionalidad por residencia · 2025"
+         }
+       ]                                                                      */
+  resenas: [],
 
 
   /* ── PERFIL PROFESIONAL ──────────────────────────────────────────────────
-     Elementos que transmiten que detrás hay un profesional en activo.
-     Cualquiera de ellos vacío o en false simplemente no se muestra.        */
+     Cualquier campo vacío o en false simplemente no se muestra.              */
   profesional: {
 
-    // Distintivo "Disponible para colaboraciones" en la portada.
-    // Ponlo en false cuando no estés aceptando proyectos.
+    // Distintivo "Acepta nuevos casos" en la portada.
+    // Ponlo en false cuando la agenda esté cerrada.
     disponible: true,
-    textoDisponible: "Disponible para colaboraciones",
+    textoDisponible: "Acepta nuevos casos",
 
-    // Plazo de respuesta que se anuncia en la sección de contacto.
-    // Déjalo vacío ("") si prefieres no comprometerte a un plazo.
-    plazoRespuesta: "Respuesta en 48 horas laborables",
+    // Plazo de respuesta a las consultas. "" = no se anuncia plazo.
+    plazoRespuesta: "Respuesta a consultas en 48 horas laborables",
 
-    // Ubicación. Aparece en portada, contacto y pie.
+    // Ubicación. Se muestra en portada, contacto y pie, y alimenta los
+    // datos estructurados. Mantén el formato "Ciudad, País".
     ubicacion: "Tel Aviv, Israel",
 
-    // Aclaración horaria para quien vaya a proponer una reunión.
-    // Israel va una hora por delante de la España peninsular casi todo el
-    // año (los cambios de hora no coinciden exactamente). Vacío = no se muestra.
+    // Aclaración horaria para quien vaya a proponer una llamada.
     husoHorario: "Una hora por delante de la España peninsular",
 
-    // Aclaración sobre cómo se trabaja desde la distancia. Vacío = no se muestra.
-    modalidad: "Colaboraciones en remoto para toda España"
+    // Cómo se atiende a distancia.
+    modalidad: "Consultas por videollamada y trámites por vía electrónica"
   },
 
 
   /* ── PÁGINAS LEGALES ─────────────────────────────────────────────────────
-     ⚠️  IMPORTANTE si Raúl factura como autónomo:
-     la LSSI-CE obliga a identificar al titular de la web (nombre, NIF y
-     datos de contacto) y, si el formulario recoge datos personales, a
-     publicar una política de privacidad.
+     ⚠️  OBLIGATORIAS en la web de un abogado en ejercicio:
+       · Aviso legal con los datos del titular, NIF, colegio y nº de colegiado
+         (LSSI-CE art. 10 y normativa deontológica de publicidad).
+       · Política de privacidad: el formulario recoge datos personales y
+         además pueden ser datos sensibles según la materia (RGPD).
 
-     Cuando tengas esas páginas, pon aquí sus URLs y aparecerán en el pie.
-     Con las URLs vacías no se muestra ningún enlace.                       */
+     Cuando tengas esas páginas, pon aquí sus URLs y aparecerán en el pie.    */
   legal: [
     { texto: "Aviso legal",            url: "" },
     { texto: "Política de privacidad", url: "" }
