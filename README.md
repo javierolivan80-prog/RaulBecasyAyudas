@@ -1,4 +1,4 @@
-# Raúl Becas y Ayudas — web personal
+# Raúl Becas y Lefillas — web personal
 
 Sitio web de marca personal de **Raúl**, creador de contenido especializado en
 becas, ayudas y oportunidades educativas para estudiantes y familias.
@@ -17,7 +17,7 @@ Todo lo que hay que personalizar está en **un único archivo**:
 ### 1. Email de contacto
 
 ```js
-email: "hola@raulbecasyayudas.com",   // ← pon aquí el email real
+email: "hola@raulbecasylefillas.com",   // ← pon aquí el email real
 ```
 
 Lo usan el enlace directo y el formulario de contacto.

@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   RAÚL BECAS Y AYUDAS — CONFIGURACIÓN
+   RAÚL BECAS Y LEFILLAS — CONFIGURACIÓN
    ────────────────────────────────────────────────────────────────────────────
    Este es el ÚNICO archivo que necesitas editar para poner la web en marcha.
    No hace falta tocar el HTML ni el CSS.
@@ -14,7 +14,7 @@ window.SITE_CONFIG = {
 
   /* ── EMAIL DE CONTACTO ───────────────────────────────────────────────────
      El formulario de contacto y el enlace directo usan esta dirección.        */
-  email: "hola@raulbecasyayudas.com",   // ← CAMBIAR por el email real
+  email: "hola@raulbecasylefillas.com",   // ← CAMBIAR por el email real
 
 
   /* ── REDES SOCIALES ──────────────────────────────────────────────────────
@@ -66,7 +66,7 @@ window.SITE_CONFIG = {
     {
       id: "linkedin",
       nombre: "LinkedIn",
-      handle: "Raúl Becas y Ayudas",           // ← CAMBIAR
+      handle: "Raúl Becas y Lefillas",         // ← CAMBIAR
       url: "",                                  // vacío = no se muestra
       descripcion: "Colaboraciones, instituciones y proyectos educativos.",
       cta: "Conectar en LinkedIn"

@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   RAÚL BECAS Y AYUDAS — COMPORTAMIENTO
+   RAÚL BECAS Y LEFILLAS — COMPORTAMIENTO
    Vanilla JS, sin dependencias. No hace falta editar este archivo:
    toda la configuración vive en assets/js/config.js
    ════════════════════════════════════════════════════════════════════════════ */
@@ -313,7 +313,7 @@
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Raúl',
-      alternateName: 'Raúl Becas y Ayudas',
+      alternateName: 'Raúl Becas y Lefillas',
       jobTitle: 'Divulgador especializado en becas y ayudas al estudio',
       description: 'Divulgación sobre becas, ayudas y oportunidades educativas para estudiantes y familias.',
       knowsLanguage: 'es'
