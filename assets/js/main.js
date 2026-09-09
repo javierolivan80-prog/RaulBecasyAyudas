@@ -85,6 +85,13 @@
       }).join('');
       reviewsSection.hidden = false;
       if (navResenas) navResenas.hidden = false;
+
+      /* Mientras sean de ejemplo, se avisa de forma bien visible */
+      var demoBadge = document.querySelector('[data-demo-badge]');
+      if (demoBadge) {
+        if (cfg.resenasSonEjemplo) { demoBadge.hidden = false; }
+        else { demoBadge.remove(); }
+      }
     } else {
       reviewsSection.remove();
       if (navResenas) navResenas.remove();

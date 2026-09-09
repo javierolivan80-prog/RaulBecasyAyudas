@@ -25,11 +25,11 @@ pueden rellenarse con datos reales:
 | Bloque | Por qué está vacío |
 | --- | --- |
 | `credenciales` | El nº de colegiado es público y verificable. Inventarlo es una infracción deontológica. |
-| `resenas` | Las reseñas falsas están prohibidas por la Directiva (UE) 2019/2161 y la Ley de Competencia Desleal, con sanciones de hasta el 4 % de la facturación. |
+| `resenas` | Hay **seis reseñas de ejemplo** para poder ver el diseño terminado. Se muestran con un distintivo visible de «Contenido de ejemplo» y hay que sustituirlas por reales antes de publicar. |
 | `legal` | El aviso legal y la política de privacidad exigen datos identificativos reales. |
 
-Mientras estén vacíos, esas secciones **no aparecen**: la web funciona
-perfectamente sin ellas y no muestra huecos.
+Con `credenciales` y `legal` vacíos, esas secciones **no aparecen**: la web
+funciona perfectamente sin ellas y no muestra huecos.
 
 ---
 
@@ -64,6 +64,10 @@ público.
 
 ### 4. Reseñas de clientes
 
+**Ahora mismo hay seis reseñas de ejemplo**, para que la web se pueda enseñar
+con el diseño terminado. Mientras `resenasSonEjemplo` esté en `true`, la
+sección muestra un aviso visible de que ese contenido es de relleno.
+
 ```js
 resenas: [
   {
@@ -71,17 +75,24 @@ resenas: [
     autor:   "María L.",
     detalle: "Nacionalidad por residencia · 2025"
   }
-]
+],
+resenasSonEjemplo: false   // ← en false cuando ya sean reales
 ```
 
-Tres requisitos para publicar una reseña:
+Tres requisitos para publicar una reseña real:
 
 1. Que sea de un **cliente real**.
 2. Que te haya **autorizado por escrito** a publicarla.
 3. Que **no revele datos que identifiquen su asunto** — el secreto profesional
    sigue vigente. Lo habitual es nombre e inicial del apellido.
 
-Si la lista está vacía, la sección y su enlace del menú desaparecen solos.
+> ⚠️ No pongas `resenasSonEjemplo` en `false` sin haber sustituido las
+> reseñas. Publicar testimonios inventados sin distintivo es publicidad
+> engañosa: Directiva (UE) 2019/2161 y Ley de Competencia Desleal, con
+> sanciones de hasta el 4 % de la facturación anual, más la responsabilidad
+> deontológica que corresponde a un colegiado.
+
+Si vacías la lista, la sección y su enlace del menú desaparecen solos.
 
 ### 5. Perfil profesional
 
@@ -142,7 +153,7 @@ sube el `max-width` de `.about-photo` en el CSS.
 2. **Perfil** — trayectoria, forma de trabajar y credenciales.
 3. **Áreas de práctica** — las seis materias del despacho.
 4. **Cómo se trabaja** — el proceso en cuatro pasos.
-5. **Reseñas** — testimonios reales (oculta si no hay).
+5. **Reseñas** — testimonios de clientes (oculta si la lista está vacía).
 6. **Preguntas frecuentes** — acordeón accesible.
 7. **Contacto** — formulario de consulta.
 

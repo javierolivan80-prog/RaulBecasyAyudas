@@ -1238,6 +1238,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .section-reviews { background: var(--paper); }
 
+.demo-badge[hidden] { display: none; }
+
+.demo-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  margin: 1.25rem 0 0;
+  padding: .8rem 1.1rem;
+  border-radius: 12px;
+  border: 1px dashed rgba(242, 106, 33, .5);
+  background: rgba(242, 106, 33, .08);
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  max-width: 46ch;
+}
+.demo-badge svg { width: 19px; height: 19px; flex: none; margin-top: .1rem; color: var(--accent); }
+.demo-badge strong { color: var(--text); font-weight: 650; }
+
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
