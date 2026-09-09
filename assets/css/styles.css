@@ -667,13 +667,68 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-weight: 600;
 }
 
+/* Columna derecha: retrato + tarjeta de principios */
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-photo {
+  margin: 0;
+  /* El original tiene 516 px de ancho: por encima de este tamaño se vería
+     blando. Limitarlo mantiene la foto nítida en pantallas de alta densidad. */
+  max-width: 330px;
+  align-self: flex-start;
+}
+
+.about-photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--paper-3);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.about-photo-frame::after {
+  /* Velo azul muy sutil para unificar las dos fotos con la paleta */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, rgba(47, 107, 255, .1), transparent 55%);
+  pointer-events: none;
+}
+.about-photo-frame img {
+  width: 100%;
+  /* Vertical y algo más cerrado: menos cielo, más protagonista */
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.about-photo figcaption {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .95rem;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.about-photo-line {
+  height: 1px;
+  width: 30px;
+  flex: none;
+  background: var(--accent);
+}
+
 .about-aside {
   padding: clamp(1.5rem, 3vw, 2.1rem);
   background: var(--paper-2);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  position: sticky;
-  top: 108px;
 }
 .about-aside-title {
   font-size: .76rem;
@@ -1323,7 +1378,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); }
   .work-grid, .social-grid, .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid { grid-template-columns: 1fr; }
-  .about-aside { position: static; }
+  /* Apiladas: el retrato pasa a acompañar al texto, no a dominarlo */
+  .about-side { flex-direction: row; align-items: flex-start; }
+  .about-side > * { flex: 1 1 0; min-width: 0; }
 }
 
 @media (max-width: 900px) {
@@ -1406,6 +1463,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .contact-form { grid-template-columns: 1fr; }
   .work-grid, .social-grid, .community-grid { grid-template-columns: 1fr; }
+  .about-side { flex-direction: column; }
   .faq-answer { padding-right: 1rem; }
   .work-grid, .stats { border-radius: 20px; }
   .footer-nav { grid-template-columns: 1fr; gap: 2rem; }

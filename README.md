@@ -55,12 +55,25 @@ cifras: [
 ]
 ```
 
-### 4. Fotografía
+### 4. Fotografías
 
-La foto del hero es `assets/img/raul.jpg`. Para cambiarla, sustituye el archivo
-manteniendo el nombre. Recomendado: formato cuadrado o vertical, mínimo
-800 × 800 px. Si cambias mucho la proporción, ajusta `width` y `height` en la
-etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
+Hay dos, y se cambian sustituyendo el archivo con el mismo nombre:
+
+| Archivo                  | Dónde sale                | Tamaño en pantalla |
+| ------------------------ | ------------------------- | ------------------ |
+| `assets/img/raul.jpg`    | Hero (portada)            | hasta 440 px       |
+| `assets/img/raul-2.jpg`  | Sección "Quién es Raúl"   | 328 × 410 px       |
+
+Recomendado: mínimo 900 px de lado para que se vean nítidas en pantallas de
+alta densidad (móviles y portátiles modernos).
+
+> **Nota sobre `raul-2.jpg`:** el original es una captura de vídeo de 516 × 505 px.
+> Por eso se muestra limitada a 328 px de ancho (`max-width` en `.about-photo`):
+> a mayor tamaño se vería blanda. Si consigues esa misma foto en mejor calidad,
+> súbela con el mismo nombre y sube ese `max-width` en `assets/css/styles.css`.
+
+Si cambias mucho la proporción de una foto, ajusta también `width` y `height`
+en su etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
 
 ---
 
@@ -73,9 +86,11 @@ etiqueta `<img>` de `index.html` para evitar saltos de maquetación.
 │   ├── css/styles.css      Estilos completos, con tokens de diseño arriba
 │   ├── js/config.js        ← EL ÚNICO ARCHIVO QUE HAY QUE EDITAR
 │   ├── js/main.js          Comportamiento (menú, animaciones, formulario)
-│   └── img/
-│       ├── raul.jpg        Retrato del hero
-│       └── favicon.svg     Icono de pestaña
+│   ├── img/
+│   │   ├── raul.jpg        Retrato del hero
+│   │   ├── raul-2.jpg      Retrato de la sección "Quién es Raúl"
+│   │   └── favicon.svg     Icono de pestaña
+│   └── fonts/              Fuentes auto-alojadas (Fraunces e Inter)
 └── README.md
 ```
 
