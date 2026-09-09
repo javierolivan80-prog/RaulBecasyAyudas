@@ -89,42 +89,12 @@ window.SITE_CONFIG = {
        3. Que no revele datos que identifiquen su asunto (secreto profesional).
           Lo habitual es usar el nombre y la inicial del apellido.
 
-     Las que hay ahora son DE EJEMPLO, para poder ver el diseño terminado.
-     Sustitúyelas por reseñas reales y pon `resenasSonEjemplo` en false.
+     Con la lista vacía, la sección entera y su enlace del menú no aparecen,
+     así que la web no muestra ningún hueco mientras no tengas testimonios.
 
-     Con la lista vacía, la sección entera y su enlace del menú no aparecen. */
-  resenas: [
-    {
-      texto: "Llevaba dos años con el expediente parado y nadie me explicaba por qué. En la primera consulta entendí más que en todo ese tiempo. Muy claro y muy honesto con los plazos.",
-      autor: "Marta S.",
-      detalle: "Nacionalidad por residencia · 2025"
-    },
-    {
-      texto: "Me dijo desde el principio qué opciones tenía y cuál no merecía la pena intentar. Agradezco que no me vendiera humo para cobrarme una gestión de más.",
-      autor: "David R.",
-      detalle: "Extranjería y residencia · 2025"
-    },
-    {
-      texto: "Una herencia con bienes en dos países parecía imposible de ordenar. Nos llevó paso a paso y siempre supimos en qué punto estábamos.",
-      autor: "Ana G.",
-      detalle: "Herencias y sucesiones · 2024"
-    },
-    {
-      texto: "Atención impecable y en nuestro idioma. Respondía a los correos el mismo día y explicaba cada trámite antes de hacerlo.",
-      autor: "Yosef M.",
-      detalle: "Familia internacional · 2025"
-    },
-    {
-      texto: "El presupuesto fue cerrado y no hubo ni una sorpresa. Se agradece saber desde el primer día lo que vas a pagar.",
-      autor: "Laura P.",
-      detalle: "Nacionalidad por opción · 2024"
-    },
-    {
-      texto: "Revisó el contrato y me señaló dos cláusulas que yo había pasado por alto. Directo, sin rodeos y sin alargar el asunto.",
-      autor: "Carlos V.",
-      detalle: "Civil y contratos · 2025"
-    }
-  ],
+     Formato de cada reseña:
+       { texto: "…", autor: "María L.", detalle: "Materia · Año" }           */
+  resenas: [],
 
 
   /* ── ¿Son reseñas de ejemplo? ────────────────────────────────────────────
@@ -133,7 +103,7 @@ window.SITE_CONFIG = {
 
      ⚠️  PONLO EN false SOLO CUANDO LAS HAYAS SUSTITUIDO POR RESEÑAS REALES.
      Publicar las de ejemplo sin el distintivo sería publicidad engañosa.    */
-  resenasSonEjemplo: true,
+  resenasSonEjemplo: false,
 
 
   /* ── PERFIL PROFESIONAL ──────────────────────────────────────────────────
